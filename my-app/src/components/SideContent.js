@@ -7,6 +7,7 @@ const colors = {
     white: '#FFFFFF',
     gray: '#e6e1e1',
     black: "#000000",
+    orange: '#FFA500',
 };
 
 
@@ -38,11 +39,8 @@ export default function SideContent() {
                         display: 'flex',
                         flexDirection: 'column',
                         padding: 3,
-                        position: 'relative', // Fix the sidebar on the left side
-                        top: '90px', // Add space to move it below the AppBar
-                        height: '100%', // Adjust height to fit within the viewport
+                        height: '100%',
                         flexShrink: 0,
-                        
                     }}
                 >
                     {/* Profile Information */}
@@ -104,7 +102,6 @@ export default function SideContent() {
                         variant="contained"
                         color="warning"
                         startIcon={<Download />}
-                        sx={{ mt: 'auto' }}
                     >
                         Download CV
                     </Button>
