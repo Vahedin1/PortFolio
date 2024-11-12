@@ -6,6 +6,7 @@ import Home from './pages/Home.js';
 import NoPage from './pages/NoPage.js';
 import Kontakt from './pages/Kontakt.js';
 import Projects from './pages/Projects.js';
+import MainLayout from './components/MainLayout';
 
 const theme = createTheme({
   typography: {
@@ -13,25 +14,23 @@ const theme = createTheme({
   },
 });
 
-
 function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        {/* Your component structure here */}
-        <BrowserRouter>
-          <ScrollToTop />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <ScrollToTop />
+        {/* Wrapping all routes with MainLayout */}
+        <MainLayout>
           <Routes>
             <Route index element={<Home />} />
-            <Route path='/' element={<Home />} />
-            <Route path='/get-in-touch' element={<Kontakt />} />
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/*' element={<NoPage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/get-in-touch" element={<Kontakt />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/*" element={<NoPage />} />
           </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
-
-    </>
+        </MainLayout>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

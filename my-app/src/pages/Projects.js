@@ -1,6 +1,4 @@
 import * as React from 'react';
-import ResponsiveAppBar from '../components/AppBar';
-import Footer from '../components/Footer.js';
 
 
 const colors = {
@@ -17,7 +15,6 @@ export default function Projects() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <ResponsiveAppBar />
             <div style={{ flex: '1 0 auto' }}>
 
 
@@ -26,7 +23,6 @@ export default function Projects() {
 
             </div>
             {/* Footer Section */}
-            <Footer />
         </div>
     );
 }

@@ -1,12 +1,9 @@
-import ResponsiveAppBar from '../components/AppBar';
-import Footer from '../components/Footer';
 
 import { Typography } from '@mui/material';
 
 export default function NoPage() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <ResponsiveAppBar />
             <div style={{ flex: '1 0 auto' }}>
                 <Typography sx={{
                     textDecoration: "none",
@@ -26,7 +23,6 @@ export default function NoPage() {
                     Error 404: Not Found
                 </Typography>
             </div>
-            <Footer />
 
         </div>
 

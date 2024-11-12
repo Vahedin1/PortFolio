@@ -6,6 +6,7 @@ import { Menu as MenuIcon, Close as CloseIcon, } from '@mui/icons-material';
 const pages = ['Home', 'Projects', 'Language', 'Get in Touch'];
 
 const colors = {
+  blue: '#1e1e2d',
   white: '#FFFFFF',
   gray: '#e6e1e1',
   black: "#000000",
@@ -23,7 +24,7 @@ const pagesItemStyles = {
 };
 
 const appbarItemStyles = {
-  backgroundColor: colors.black,
+  backgroundColor: colors.blue,
   color: colors.white,
   transition: 'background-color 0.3s',
 };
@@ -60,7 +61,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ ...appbarItemStyles, boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.3)" }}>
+    <AppBar position="absolute" sx={{ ...appbarItemStyles,}}>
       <Container maxWidth="false" sx={{ maxWidth: '1300px', margin: '0 auto' }}>
         <Toolbar disableGutters sx={{ width: '100%' }}>
           {/* Centered Pages for Desktop */}

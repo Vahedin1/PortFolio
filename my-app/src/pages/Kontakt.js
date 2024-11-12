@@ -1,4 +1,3 @@
-import ResponsiveAppBar from '../components/AppBar';
 import React, { useState } from "react";
 import { Box, Button, Grid, Alert, Snackbar, MenuItem, Select, TextField, FormControl, InputLabel, FormHelperText, Typography } from "@mui/material";
 import emailjs from 'emailjs-com';
@@ -381,7 +380,6 @@ const ContactForm = () => {
 export default function Kontakt() {
     return (
         <>
-            <ResponsiveAppBar />
             <Grid container spacing={2} marginTop={'70px'} marginBottom={'0px'} sx={{ minHeight: '100vh', justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={12} md={8}>
                     <ContactForm />

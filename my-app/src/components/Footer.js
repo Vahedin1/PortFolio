@@ -4,39 +4,37 @@ import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
 const colors = {
-    white: "#FFFFFF",
-    gray: "#e6e1e1",
+    blue: '#1e1e2d',
+    white: '#FFFFFF',
+    gray: '#e6e1e1',
     black: "#000000",
-
 };
-
-
-
 
 const Footer = () => {
 
     return (
         <Box sx={{
-            backgroundColor: colors.black,
+            backgroundColor: colors.blue,
             color: colors.white,
+            paddingY: 2,
+            textAlign: 'center',
         }}>
             <Container
                 maxWidth="false"
                 sx={{
                     maxWidth: { xs: "100%", sm: "1300px" },
                     margin: "0 auto",
-                    marginTop: "0 auto",
+                    textAlign: 'center',
                 }}
             >
 
 
                 {/* Horizontal Divider */}
-                <Box sx={{ borderBottom: "2px solid #444", marginY: "20px" }} />
+                <Box sx={{ borderBottom: "2px solid #444", marginY: 2 }} />
 
                 {/* Copyright */}
                 <Typography variant="body2" align="center">
-                    &copy; 2024 | www.unger-bau.de
-
+                    &copy; VAHA. All Rights Reserved
                 </Typography>
             </Container>
         </Box>
