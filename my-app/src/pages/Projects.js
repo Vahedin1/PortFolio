@@ -1,7 +1,15 @@
-import * as React from 'react';
-import { Button, Typography, Paper } from '@mui/material';
-import { Link } from 'react-router-dom';
-import Projects from './Projects';
+import React, { useState } from 'react';
+import { Grid, Typography, Box, Link, Paper } from '@mui/material';
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiPython } from 'react-icons/si';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions'; // Material UI icon
+
+// Define icons directly here since you've removed the Icons.js file
+export const HtmlIcon = () => <SiHtml5 color="#E34F26" />; // HTML icon color
+export const CssIcon = () => <SiCss3 color="#1572B6" />; // CSS icon color
+export const JsIcon = () => <SiJavascript color="#F7DF1E" />; // JavaScript icon color
+export const ReactIcon = () => <SiReact color="#61DAFB" />; // React icon color
+export const MuiIcon = () => <IntegrationInstructionsIcon style={{ color: '#007FFF', fontSize: 40 }} />; // Material UI icon color
+export const PythonIcon = () => <SiPython color="#3776AB" />; // Python icon color
 
 const colors = {
     white: "#FFFFFF",
@@ -11,177 +19,139 @@ const colors = {
     black: '#000000',
 };
 
-export default function AboutMe({ projects }) {
-    const recentProjects = projects.slice(0, 9);
+// Map icon names to actual icons
+const iconMapping = {
+    html: <HtmlIcon />,
+    css: <CssIcon />,
+    js: <JsIcon />,
+    react: <ReactIcon />,
+    mui: <MuiIcon />,
+    python: <PythonIcon />,
+};
+
+const Projects = ({ projects = [] }) => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                minHeight: '100vh',
-                padding: '20px',
-                backgroundColor: '#f4f6f9',
-            }}
-        >
-            <div style={{ flex: '1 0 auto' }}>
-                {/* About Me Section */}
-                <Paper
-                    elevation={3}
-                    sx={{
-                        padding: '20px',
-                        marginBottom: '20px',
-                        '@media (max-width: 600px)': {
-                            padding: '15px',
-                        },
-                    }}
-                >
-                    <Typography
-                        variant="h3"
-                        sx={{
-                            fontWeight: 'bold',
-                            marginBottom: '10px',
-                            fontSize: '2.5rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1.8rem', // Adjust font size for smaller screens
-                            },
+        <Grid container spacing={3} sx={{ bgcolor: colors.blue }}>
+            {projects.length > 0 ? (
+                projects.map((project, index) => (
+                    <Grid
+                        item
+                        xs={12}
+                        sm={4}
+                        md={4}
+                        key={index}
+                        style={{
+                            position: 'relative',
+                            cursor: 'pointer',
+                            height: '300px',
                         }}
+                        onMouseEnter={() => setHoveredIndex(index)}  // Set index on hover
+                        onMouseLeave={() => setHoveredIndex(null)}   // Clear on mouse leave
                     >
-                        About Me
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        paragraph
-                        sx={{
-                            fontSize: '1.1rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1rem', // Adjust font size for smaller screens
-                            },
-                        }}
-                    >
-                        — EST 2023 — Hi there I'm VAHA — Front End Developer & Python Developer. I take pride in providing beautifully designed, well thought out and animated websites to the masses.
-                        Let's work together and bring your project to life and give it the razzle-dazzle it deserves. We don't take ourselves too seriously — just the work we do. Take care.
-                    </Typography>
-                </Paper>
+                        <Link
+                            href={project.url}
+                            style={{ textDecoration: 'none', display: 'block', height: '100%', width: '100%' }}
+                        >
+                            <Paper
+                            
+                                style={{
+                                    position: 'relative',
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'flex-end',
+                                    backgroundColor: colors.blue,
+                                    overflow: 'hidden',  // Ensure no overflow
+                                    borderRadius: '8px', // Optional: add rounded corners
+                                }}
+                            >
+                                {hoveredIndex === index ? (
+                                    <video
+                                        src={project.video}
+                                        style={{
+                                            objectFit: 'cover',
+                                            width: '100%',
+                                            height: '100%',
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                        }}
+                                        muted
+                                        autoPlay
+                                        loop
+                                    />
+                                ) : (
+                                    <img
+                                        src={project.img}
+                                        alt={project.title}
+                                        style={{
+                                            objectFit: 'cover',
+                                            width: '100%',
+                                            height: '100%',
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            opacity: project.imgOpacity || 1,  // Apply dynamic opacity here
+                                        }}
+                                    />
+                                )}
 
-                {/* Education Section */}
-                <Paper
-                    elevation={3}
-                    sx={{
-                        padding: '20px',
-                        marginBottom: '20px',
-                        '@media (max-width: 600px)': {
-                            padding: '15px',
-                        },
-                    }}
-                >
-                    <Typography
-                        variant="h4"
-                        sx={{
-                            fontWeight: 'bold',
-                            marginBottom: '10px',
-                            fontSize: '1.8rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1.5rem',
-                            },
-                        }}
-                    >
-                        Education
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            fontWeight: 'bold',
-                            fontSize: '1.2rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1.1rem',
-                            },
-                        }}
-                    >
-                        Python & AI Developer
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        paragraph
-                        sx={{
-                            fontSize: '1.1rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1rem',
-                            },
-                        }}
-                    >
-                        IT Academy - Graduated 2024
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            fontWeight: 'bold',
-                            fontSize: '1.2rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1.1rem',
-                            },
-                        }}
-                    >
-                        Microsoft Development Program
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        paragraph
-                        sx={{
-                            fontSize: '1.1rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1rem',
-                            },
-                        }}
-                    >
-                        IT Academy - Currently Enrolled
-                    </Typography>
-                </Paper>
+                                {/* Add background overlay with opacity */}
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '35%',
+                                        backgroundColor: colors.blue,
+                                        opacity: project.overlayOpacity || 0.6, // Apply dynamic overlay opacity
+                                        zIndex: 1,
+                                    }}
+                                ></div>
 
-                {/* Recent Projects Section */}
-                <Paper
-                    elevation={3}
-                    sx={{
-                        padding: '20px',
-                        marginBottom: '20px',
-                        '@media (max-width: 600px)': {
-                            padding: '15px',
-                        },
-                    }}
-                >
-                    <Typography
-                        variant="h4"
-                        sx={{
-                            fontWeight: 'bold',
-                            marginBottom: '10px',
-                            fontSize: '1.8rem',
-                            '@media (max-width: 600px)': {
-                                fontSize: '1.5rem',
-                            },
-                        }}
-                    >
-                        Recent Projects
-                    </Typography>
+                                {/* Project Title and Icons */}
+                                <div
+                                    style={{
+                                        position: 'relative',
+                                        zIndex: 2,
+                                        textAlign: 'left',
+                                        padding: '10px',
+                                        color: colors.white,
+                                    }}
+                                >
+                                    <Typography variant="h6" style={{ color: project.titleColor }}>
+                                        {project.title}
+                                    </Typography>
 
-                    {/* Use the Projects component and pass only recent projects */}
-                    <Projects projects={recentProjects} />
+                                    {/* Render icons dynamically */}
+                                    <div style={{ display: 'flex', gap: '10px' }}>
+                                        {project.icons.map((iconName) => {
+                                            const icon = iconMapping[iconName];
+                                            const isMuiIcon = iconName === 'mui'; // Check if it's a Material UI icon
+                                            const fontSize = isMuiIcon ? 45 : 45; // Apply different font sizes
 
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        component={Link}
-                        to="/projects"
-                        sx={{
-                            marginTop: '10px',
-                            '@media (max-width: 600px)': {
-                                width: '100%', // Full-width button on mobile screens
-                            },
-                        }}
-                    >
-                        View All Projects
-                    </Button>
-                </Paper>
-            </div>
-        </div>
+                                            return (
+                                                icon && (
+                                                    <Box key={iconName} sx={{ fontSize }}>
+                                                        {icon}
+                                                    </Box>
+                                                )
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </Paper>
+                        </Link>
+                    </Grid>
+                ))
+            ) : (
+                <Typography>No projects available.</Typography>
+            )}
+        </Grid>
     );
-}
+};
+
+export default Projects;

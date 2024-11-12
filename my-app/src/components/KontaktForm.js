@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, Alert, Snackbar, TextField, FormControl, InputLabel, MenuItem, Select, FormHelperText, Typography } from "@mui/material";
+import { Box, Button, Alert, Snackbar, TextField, FormControl, InputLabel, MenuItem, Select, FormHelperText } from "@mui/material";
 import emailjs from 'emailjs-com';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
@@ -15,24 +15,16 @@ const colors = {
 
 const KontaktForm = () => {
     const [formData, setFormData] = useState({
-        company: "",
         name: "",
         email: "",
         phone: "",
         message: "",
         queryType: "",
-        gender: "",
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState("");
-    const [charLimitErrors, setCharLimitErrors] = useState({
-        company: "",
-        name: "",
-        email: "",
-        message: "",
-    });
 
     // Handler for text input changes
     const handleInputChange = (e) => {
@@ -71,17 +63,20 @@ const KontaktForm = () => {
 
         try {
             // Email sending logic with emailjs
-            await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData, "YOUR_USER_ID");
+            await emailjs.send(
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                formData,
+                process.env.REACT_APP_EMAILJS_USER_ID
+            );
             setSnackbarMessage("Message sent successfully!");
             setOpenSnackbar(true);
             setFormData({
-                company: "",
                 name: "",
                 email: "",
                 phone: "",
                 message: "",
                 queryType: "",
-                gender: "",
             });
         } catch (error) {
             setSnackbarMessage("Failed to send message. Try again later.");
@@ -95,17 +90,15 @@ const KontaktForm = () => {
         <Box
             className="slide-card"
             sx={{
-                maxWidth: "600px",
+                maxWidth: "80%",
                 margin: "0 auto",
                 padding: 2,
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,
-                marginTop: '80px',
-                marginBottom: '50px',
                 borderRadius: "8px",
                 border: "1px solid #ddd",
-                backgroundColor: colors.green,
+                backgroundColor: colors.white,
                 '@media (max-width: 600px)': {
                     padding: 1,
                     maxWidth: '100%', // Full width on smaller screens

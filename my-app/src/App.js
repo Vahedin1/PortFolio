@@ -22,89 +22,75 @@ const colors = {
   black: '#000000',
 };
 
-
 const projectsArray = [
   {
     title: "RAWMEN",
-    company: "ANIMAL",
     img: "./assets/unger.png",
-    titleColor: colors.black,
+    video: "./assets/video.mp4",
+    titleColor: colors.orange,
     descColor: colors.gray,
-    description: "A fun, food-themed multiplayer game."
+    description: "A fun, food-themed multiplayer game.",
+    url: '/project/1',
+    icons: ['html', 'css', 'js'],
+    overlayOpacity: 0.7,  // Set custom opacity for overlay
   },
   {
     title: "Gaming R&D",
-    company: "ANIMAL",
     img: "./assets/adobe.png",
-    titleColor: colors.white,
-    descColor: colors.gray,
-    description: "Innovative gaming research and development."
-  },
-  {
-    title: "National Parks Posters",
-    company: "GOOGLE",
-    img: "./assets/animal.png",
+    video: "./assets/video.mp4",
     titleColor: colors.orange,
-    descColor: colors.white,
-    description: "Beautiful posters inspired by national parks."
+    descColor: colors.gray,
+    description: "Innovative gaming research and development.",
+    url: '/project/1',
+    icons: ['react', 'mui', 'python'],
+    overlayOpacity: 0.8,  // Set custom opacity for overlay
   },
   {
-    title: "National Parks",
-    company: "GOOGLE",
-    img: "./assets/behance.png",
-    titleColor: colors.white,
+    title: "Gaming R&D",
+    img: "./assets/adobe.png",
+    video: "./assets/video.mp4",
+    titleColor: colors.orange,
     descColor: colors.gray,
-    description: "A tribute to the grandeur of national parks."
+    description: "Innovative gaming research and development.",
+    url: '/project/1',
+    icons: ['react', 'mui', 'python'],
+    overlayOpacity: 0.8,  // Set custom opacity for overlay
   },
   {
-    title: "Yoga",
-    company: "LENOVO",
-    img: "./assets/bluehost.png",
-    titleColor: colors.black,
+    title: "Gaming R&D",
+    img: "./assets/adobe.png",
+    video: "./assets/video.mp4",
+    titleColor: colors.orange,
     descColor: colors.gray,
-    description: "Technology meets flexibility in Lenovo's Yoga series."
+    description: "Innovative gaming research and development.",
+    url: '/project/1',
+    icons: ['react', 'mui', 'python'],
+    overlayOpacity: 0.8,  // Set custom opacity for overlay
   },
   {
-    title: "ZeroTouch",
-    company: "LOGI",
-    img: "./assets/framer.png",
-    titleColor: colors.white,
+    title: "Gaming R&D",
+    img: "./assets/adobe.png",
+    video: "./assets/video.mp4",
+    titleColor: colors.orange,
     descColor: colors.gray,
-    description: "A hands-free driving assistant for safe commuting."
+    description: "Innovative gaming research and development.",
+    url: '/project/1',
+    icons: ['react', 'mui', 'python'],
+    overlayOpacity: 0.8,  // Set custom opacity for overlay
   },
   {
-    title: "National Parks",
-    company: "GOOGLE",
-    img: "./assets/nf2.png",
-    titleColor: colors.white,
+    title: "Gaming R&D",
+    img: "./assets/adobe.png",
+    video: "./assets/video.mp4",
+    titleColor: colors.orange,
     descColor: colors.gray,
-    description: "A tribute to the grandeur of national parks."
-  },
-  {
-    title: "Yoga",
-    company: "LENOVO",
-    img: "./assets/webarty.png",
-    titleColor: colors.black,
-    descColor: colors.gray,
-    description: "Technology meets flexibility in Lenovo's Yoga series."
-  },
-  {
-    title: "ZeroTouch",
-    company: "LOGI",
-    img: "./assets/webflow.png",
-    titleColor: colors.white,
-    descColor: colors.gray,
-    description: "A hands-free driving assistant for safe commuting."
-  },
-  {
-    title: "ZeroTouch",
-    company: "LOGI",
-    img: "./assets/webflow.png",
-    titleColor: colors.white,
-    descColor: colors.gray,
-    description: "A hands-free driving assistant for safe commuting."
+    description: "Innovative gaming research and development.",
+    url: '/project/1',
+    icons: ['react', 'mui', 'python'],
+    overlayOpacity: 0.8,  // Set custom opacity for overlay
   },
 ];
+
 
 function App() {
   return (

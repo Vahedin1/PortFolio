@@ -79,7 +79,7 @@ function ResponsiveAppBar() {
             onClick={handleOpenNavMenu}
             color="inherit"
             sx={{
-              display: { xs: 'flex', sm: 'none' }, // Hamburger icon only on mobile
+              display: { xs: 'flex', sm: 'flex' }, // Hamburger icon only on mobile
               position: 'absolute',
               top: '10px',
               left: '50%',
@@ -182,13 +182,13 @@ function ResponsiveAppBar() {
           },
         }}
       >
-        {/* Close Button */}
         <IconButton
           onClick={handleCloseNavMenu}
           sx={{
             position: 'absolute',
-            top: 20,
-            right: 20,
+            top: '20%', // Position it vertically at 50% of the container
+            left: '50%', // Position it horizontally at 50% of the container
+            transform: 'translate(-50%, -50%)', // Shift it back by 50% of its own width/height to center it
             zIndex: 1300,
             color: colors.orange,
             backgroundColor: colors.white,
