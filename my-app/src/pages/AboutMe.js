@@ -43,7 +43,7 @@ export default function AboutMe({ projects }) {
                             marginBottom: '10px',
                             fontSize: '2.5rem',
                             '@media (max-width: 600px)': {
-                                fontSize: '1.8rem', // Adjust font size for smaller screens
+                                fontSize: '1.8rem', // Adjust font size for mobile
                             },
                         }}
                     >
@@ -55,7 +55,7 @@ export default function AboutMe({ projects }) {
                         sx={{
                             fontSize: '1.1rem',
                             '@media (max-width: 600px)': {
-                                fontSize: '1rem', // Adjust font size for smaller screens
+                                fontSize: '1rem', // Adjust font size for mobile
                             },
                         }}
                     >
@@ -174,7 +174,7 @@ export default function AboutMe({ projects }) {
                         sx={{
                             marginTop: '10px',
                             '@media (max-width: 600px)': {
-                                width: '100%', // Full-width button on mobile screens
+                                width: '100%', // Make the button full width on mobile
                             },
                         }}
                     >

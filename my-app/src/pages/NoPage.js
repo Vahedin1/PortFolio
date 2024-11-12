@@ -1,6 +1,15 @@
 
 import { Typography } from '@mui/material';
 
+const colors = {
+    white: "#FFFFFF",
+    orange: '#FFA500',
+    blue: '#1e1e2d',
+    gray: "#7A7979",
+    black: '#000000',
+};
+
+
 export default function NoPage() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
